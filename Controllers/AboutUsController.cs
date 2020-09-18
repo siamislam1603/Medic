@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Medic.Controllers
 {
+    [AllowAnonymous]
     public class AboutUsController : Controller
     {
         // GET: AboutUs
