@@ -13,12 +13,17 @@
             @{
                 if (User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("UserProfile", "Index", "Manage", new { id = User.Identity.GetUserId() }, new { title = "Manage", @class = "dropdown-item" })
+                    @Html.ActionLink("Change Password", "ChangePassword", "Manage", new { id = User.Identity.GetUserId() }, new { title = "Manage", @class = "dropdown-item" })
                 }
                 else if(User.IsInRole("User"))
                 {
                     @Html.ActionLink("UserProfile", "UserProfile", "User", new { id = User.Identity.GetUserId() }, new { title = "Manage", @class = "dropdown-item" })
                 }
+                else if(User.IsInRole("Doctor"))
+                {
+                    @Html.ActionLink("UserProfile", "UserProfile", "Doctor", new { id = User.Identity.GetUserId() }, new { title = "Manage", @class = "dropdown-item" })
+                }
+                
             }
             <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a>
         </div>

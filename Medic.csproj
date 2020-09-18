@@ -204,6 +204,7 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\gijgo.css" />
     <Content Include="css\magnific-popup.css" />
+    <Content Include="css\mystylesheet.css" />
     <Content Include="css\nice-select.css" />
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\slicknav.css" />
@@ -430,6 +431,7 @@
     <Content Include="Views\Role\Edit.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\User\UserProfile.cshtml" />
+    <Content Include="Views\Doctor\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
