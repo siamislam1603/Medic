@@ -4,31 +4,36 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div style="height: 93px;position: relative;background:#2A2C38"></div>
-<h2>Index</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p>
+                @Html.ActionLink("Create New", "Create", null, new { @class = "genric-btn success circle px-3" })
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th></th>
+                </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "genric-btn primary circle px-3" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "genric-btn info circle px-3" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "genric-btn danger circle px-3" })
+                        </td>
+                    </tr>
+                }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+            </table>
 
-</table>
+        </div>
+    </div>
+</div>
