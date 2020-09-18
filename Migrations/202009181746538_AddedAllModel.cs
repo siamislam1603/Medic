@@ -3,16 +3,37 @@ namespace Medic.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialModel : DbMigration
+    public partial class AddedAllModel : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Doctors",
+                c => new
+                    {
+                        id = c.String(nullable: false, maxLength: 128),
+                        name = c.String(maxLength: 32),
+                        specialization = c.String(),
+                    })
+                .PrimaryKey(t => t.id);
+            
+            CreateTable(
+                "dbo.NormalUsers",
+                c => new
+                    {
+                        id = c.String(nullable: false, maxLength: 128),
+                        bloodGroup = c.String(maxLength: 3),
+                        name = c.String(maxLength: 32),
+                    })
+                .PrimaryKey(t => t.id);
+            
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         Name = c.String(nullable: false, maxLength: 256),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
@@ -94,6 +115,8 @@ namespace Medic.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.NormalUsers");
+            DropTable("dbo.Doctors");
         }
     }
 }

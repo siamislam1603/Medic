@@ -19,8 +19,10 @@ namespace Medic.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationRoleManager _roleManager;
+        private ApplicationDbContext context;
         public AccountController()
         {
+            context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationRoleManager roleManager)
@@ -172,6 +174,24 @@ namespace Medic.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    if (model.RoleName == "User")
+                    {
+                        var normalUser = new NormalUser
+                        {
+                            id = user.Id
+                        };
+                        context.NormalUsers.Add(normalUser);
+                        context.SaveChanges();
+                    }
+                    else if (model.RoleName == "Doctor")
+                    {
+                        var doctor = new Doctor
+                        {
+                            id = user.Id
+                        };
+                        context.Doctors.Add(doctor);
+                        context.SaveChanges();
+                    }
                     result = await UserManager.AddToRoleAsync(user.Id, model.RoleName);
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 

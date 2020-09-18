@@ -24,6 +24,8 @@ namespace Medic.Models
     }
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<NormalUser> NormalUsers { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

@@ -175,21 +175,20 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009181325480_InitialModel.cs" />
-    <Compile Include="Migrations\202009181325480_InitialModel.Designer.cs">
-      <DependentUpon>202009181325480_InitialModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009181334284_role.cs" />
-    <Compile Include="Migrations\202009181334284_role.Designer.cs">
-      <DependentUpon>202009181334284_role.cs</DependentUpon>
+    <Compile Include="Migrations\202009181746538_AddedAllModel.cs" />
+    <Compile Include="Migrations\202009181746538_AddedAllModel.Designer.cs">
+      <DependentUpon>202009181746538_AddedAllModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NormalUser.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -430,6 +429,7 @@
     <Content Include="Views\Role\Details.cshtml" />
     <Content Include="Views\Role\Edit.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\User\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -445,11 +445,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009181325480_InitialModel.resx">
-      <DependentUpon>202009181325480_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009181334284_role.resx">
-      <DependentUpon>202009181334284_role.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009181746538_AddedAllModel.resx">
+      <DependentUpon>202009181746538_AddedAllModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
