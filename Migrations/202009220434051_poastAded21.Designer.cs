@@ -7,13 +7,13 @@ namespace Medic.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedAllModel : IMigrationMetadata
+    public sealed partial class poastAded21 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedAllModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(poastAded21));
         
         string IMigrationMetadata.Id
         {
-            get { return "202009181746538_AddedAllModel"; }
+            get { return "202009220434051_poastAded21"; }
         }
         
         string IMigrationMetadata.Source
