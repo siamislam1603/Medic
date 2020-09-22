@@ -26,6 +26,7 @@ namespace Medic.Models
     {
         public DbSet<NormalUser> NormalUsers { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Post> Posts { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

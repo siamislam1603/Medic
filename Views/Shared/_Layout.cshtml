@@ -16,8 +16,11 @@
         <hr />
         @Html.Partial("_footer")
     </div>
+    <script src="~/Scripts/dist/Home/react/bundle.js"></script>
+
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     @Scripts.Render("~/bundles/lib")
     @RenderSection("scripts", required: false)
+    @RenderSection("reactScript", required: false)
 </body>
 </html>
