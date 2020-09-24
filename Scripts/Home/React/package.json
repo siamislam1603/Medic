@@ -42,6 +42,7 @@
     "@babel/preset-react": "^7.10.4",
     "browser-sync-webpack-plugin": "^2.2.2",
     "css-loader": "^4.3.0",
+    "file-loader": "^6.1.0",
     "postcss": "^8.0.6",
     "postcss-loader": "^4.0.2",
     "sass": "^1.26.11",
