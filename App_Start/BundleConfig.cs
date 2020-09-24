@@ -32,7 +32,9 @@ namespace Medic
                 "~/Scripts/js/jquery.form.js",
                 "~/Scripts/js/jquery.validate.min.js",
                 "~/Scripts/js/mail-script.js",
-                "~/Scripts/js/main.js"
+                "~/Scripts/js/main.js",
+                "~/jqueryui/jquery-ui.js"
+
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -55,7 +57,11 @@ namespace Medic
                       "~/css/animate.css",
                       "~/css/slicknav.css",
                       "~/css/style.css",
-                      "~/css/mystylesheet.css"
+                      "~/css/mystylesheet.css",
+                      "~/jqueryui/jquery-ui.css",
+                      "~/jqueryui/jquery-ui.structure.css",
+                      "~/jqueryui/jquery-ui.theme.css"
+
                       ));
         }
     }
