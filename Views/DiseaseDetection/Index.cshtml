@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="container">
+        <div class="row">
+            
+                <div class="ui-widget col-6">
+                    <div class="row">
+                        <label for="tags" class="font-weight-normal">Syndrom</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-primary" id="add" type="button">Add To List</button>
+                            </div>
+                            <input id="tags" type="text" class="form-control" placeholder="Select syndrom from suggestion" aria-label="" aria-describedby="basic-addon1">
+                        </div>
+                        <button class="btn btn-success mb-3" id="check" type="button">Check Disease</button>
+                    </div>
+                    <h2 id="output"></h2>
+                    
+                </div>
+                <div class="col-6">
+                    
+                        <ul class="list-group mt-4" id="unorder-list">
+                        </ul>
+                    
+                    
+                </div>
+            
+            
+        </div>
+    </div>
+    
+@{
+    string file = @"F:\3.2\ISD LAB\Medic\ML-API\list_of_symptoms.txt";
+    if (File.Exists(file))
+    {
+        // Store each line in array of strings
+        string[] lines = File.ReadAllLines(file);
+        <script>
+            var list = [];
+            var addedlist = [];
+            </script>
+        foreach (var i in lines) {
+            <script>
+                list.push("@i.ToString()");
+            </script>
+            
+        }
+        <script>
+            console.log(list);
+        </script>
+        
+    }
+}
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#tags").autocomplete({
+                source: list
+            });
+            
+            $("#add").click(function () {
+                var str = $("#tags").val();
+                if (addedlist.indexOf(str) <= -1) {
+                    addedlist.push(str);
+                    $("#tags").val('');
+                    $("#unorder-list").append('<li class="list-group-item">' + str + '</li>');
+                }
+                
+                
+            }); 
+            $("#check").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "http://127.0.0.1:5000/test/[" + addedlist+"]",
+                    success: function (output) {
+                        console.log(output);
+                        $("#output").text("Probable Disease:"+output);
+                    }
+                });
+            });
+        });
+    </script>
+}
