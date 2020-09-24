@@ -14,6 +14,7 @@ import HelpIcon from '@material-ui/icons/Help';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import EditPost from './EditPost';
+import ShowAllPost from './ShowAllPost/ShowAllPost';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -87,7 +88,7 @@ export default function ScrollableTabsButtonForce() {
                <EditPost/>
       </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
+                <ShowAllPost/>
       </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three

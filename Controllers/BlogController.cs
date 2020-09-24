@@ -2,7 +2,9 @@
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -22,6 +24,7 @@ namespace Medic.Controllers
             return View();
         }
 
+       
         [System.Web.Http.HttpPost]
         public ActionResult PostUser(Post pst)
         {
@@ -65,9 +68,51 @@ namespace Medic.Controllers
                 return Json(new { status = "INVALID" });
             }
         }
-        /*public class Post
+
+        [System.Web.Http.Route("ShowAllPost")]
+        [System.Web.Http.HttpGet]
+        public  Object ShowAllPost()
         {
-            public string postString { get; set; }
-        } */
+            var list =  context.Posts.ToList(); ;
+            var x = 10;
+
+            return list;
+        }
+
+        [System.Web.Http.Route("GetUsers")]
+        [System.Web.Http.HttpGet]
+        public async Task<ActionResult> GetUsers()
+        {
+            return Json(await context.Posts.ToListAsync());
+        }
+
+        [System.Web.Http.Route("ShowAllPost2")]
+        [System.Web.Http.HttpGet]
+
+        public int ShowAllPost2()
+        {
+            var list = context.Posts.ToList();
+            var x = 10;
+            // var obj = new { list = list };
+            return Ok(1);
+
+
+        }
+
+        private int Ok(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        [System.Web.Http.Route("ShowAllPost3")]
+        [System.Web.Http.HttpGet]
+        public JsonResult ShowAllPost3()
+        {
+            var list = context.Posts.ToList();
+            var x = 10;
+            // var obj = new { list = list };
+
+            return Json(new { success = "Succes from server" }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

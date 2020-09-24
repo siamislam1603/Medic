@@ -390,8 +390,11 @@
     <Content Include="Scripts\Home\React\dist\bundle.js" />
     <Content Include="Scripts\Home\React\src\app.js" />
     <Content Include="Scripts\Home\React\src\EditPost.js" />
+    <Content Include="Scripts\Home\React\src\images-all\avatarIcon.jpg" />
+    <Content Include="Scripts\Home\React\src\images-all\health.png" />
     <Content Include="Scripts\Home\React\src\ScrollableTabsButtonAuto.js" />
     <Content Include="Scripts\Home\React\src\main.js" />
+    <Content Include="Scripts\Home\React\src\ShowAllPost\ShowAllPost.js" />
     <Content Include="Scripts\Home\React\src\ToasterComp\SuccessToast.js" />
     <Content Include="Scripts\Home\React\webpack.config.js" />
     <Content Include="Scripts\js\ajax-form.js" />
